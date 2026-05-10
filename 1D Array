@@ -1,0 +1,55 @@
+/************************************************************/
+//Basic input output using array 
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int arr[5];
+    for(int i = 0 ; i<=4;i++)
+    {
+      // cout<<"enter number"<<" "<<i+1<<endl;
+      cin>>arr[i];
+    }
+    for(int i =0;i<=4;i++)
+    {
+      cout<<arr[i]<<" ";
+    }
+    return 0;
+}
+/*************************************************************/
+//character type array also known as string 
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    char arr[5];
+    for(int i = 0 ; i<=4;i++)
+    {
+      // cout<<"enter number"<<" "<<i+1<<endl;
+      cin>>arr[i];
+    }
+    for(int i =0;i<=4;i++)
+    {
+      cout<<arr[i]<<" ";
+    }
+    return 0;
+}
+/*************************************************************/
+//sum of array elements
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int arr[5] = {1,2,3,4,5};
+    int sum = 0;
+    for(int i =0;i<5;i++)
+    {
+      sum+=arr[i];
+    }
+    cout<<sum;
+    return 0;
+}
+/*****************************************************************/
