@@ -1,0 +1,19 @@
+//***********************************************************************//
+ques :- print table of 2 using recursion
+#include <iostream>
+using namespace std;
+void Table(int i , int n)
+{
+  if(i==n+1)
+  {
+    return;
+  }
+  cout<<"2 * "<<i <<"="<< 2*i<<endl;;
+  Table(i+1,n);
+}
+int main() 
+{
+    int i = 1;
+    Table(i,10);
+}
+///*************************************************************************//
