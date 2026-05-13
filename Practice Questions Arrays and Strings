@@ -1,3 +1,22 @@
+//*************************************************************************************//
+//largest element in an array 
+class Solution {
+  public:
+    int largest(vector<int> &arr) {
+        // code here
+        int first = INT_MIN;
+        int n = arr.size();
+        for(int i = 0;i<n;i++)
+        {
+            if(arr[i]>first)
+            {
+                first = arr[i];
+            }
+        }
+        return first;
+    }
+};
+
 //********************************************************************************************
 //sort colors 001122
 class Solution {
