@@ -1,5 +1,13 @@
+///Steps to performs recursion there are 4 things to keep in mind 
+In main function
+1. initialisation 
+2. start of function call
+In user defined fucntion 
+1. base case - the condition to stop 
+2. work - what to do the main work to do 
+3. recursive case - how are we iterating 
 //***********************************************************************//
-ques :- print table of 2 using recursion
+ques :- print table of 2 using recursion()
 #include <iostream>
 using namespace std;
 void Table(int i , int n)
@@ -17,3 +25,24 @@ int main()
     Table(i,10);
 }
 ///*************************************************************************//
+//sum of digits 
+class Solution {
+    void sumSolve(int n , int &sum)
+    {
+        if(n==0)
+        {
+            return;
+        }
+        int a = n%10;
+        sum = sum + a;
+        sumSolve(n/10,sum);
+    }
+  public:
+    int sumOfDigits(int n) {
+        int sum = 0;
+        sumSolve(n,sum);
+        return sum;
+    }
+};
+///*************************************************************************//
+
