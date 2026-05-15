@@ -104,3 +104,57 @@ public:
     }
 };
 //***************************************************************************//
+//Ques: Valid Perfect Square (Leetcode) ?
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        
+        long long low = 1;
+        long long high = num;
+
+        while(low<=high)
+        {
+            long long mid = (high + low)  / 2 ;
+            if(mid*mid==num)
+            {
+                return true;
+            }
+            else if (mid * mid > num)
+            {
+                high = mid -1  ;
+            }
+            else{
+                low = mid + 1 ;
+            }
+        }
+        return false;
+    }
+};
+///*******************************************************************************************//
+Ques: Sqrt(x) (Leetcode) ?
+class Solution {
+public:
+    int mySqrt(int x){
+    long long high = x;
+    long long low = 1;
+    while(low<=high)
+    {
+        long long mid = (low + high)/2;
+        if(mid * mid == x)
+        {
+            return mid;
+        }
+        else if (mid * mid > x)
+        {
+            //shift left 
+            high = mid - 1;
+        }
+        else{
+            low = mid+1;
+        }
+       
+    }
+ return low - 1;
+    }
+};
+///*******************************************************************************************//
