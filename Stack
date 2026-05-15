@@ -1,0 +1,64 @@
+//*******************************************************************************************//
+Leetcode problem 20 valid parenthesis 
+iterate using for loop 
+  if opening bracket push into stack 
+  if closing bracket 
+     compare 
+        if stack is not empty 
+            check 
+                if top opening bracket is of similar type of closing bracket in current elemet         
+                    pop from stack 
+                else
+                    return false 
+        return false 
+after loop 
+  check if whole loop is iterated and stack is empty 
+      return true; 
+  else
+return false 
+/////code end 
+class Solution {
+public:
+    bool isValid(string s) {
+        
+        stack <char> st;
+        for(int i = 0 ; i<s.length();i++)
+        {
+            //current brackets through s of i 
+            char ch = s[i];
+            if((ch == '(') || (ch == '{')|| (ch=='['))//opening bracket
+            {
+                st.push(ch);
+            }
+            else //closing bracket{
+                if(!st.empty())
+                {
+                    char top = st.top();
+                    if(
+                    ((ch == ')') && (top == '('))||
+                    ((ch == '}') && (top == '{')) ||
+                    ((ch == ']') && (top == '['))
+                    )
+                    {
+                        st.pop();
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                else{
+                return false;
+                }
+            }
+        if(st.empty())
+        {
+        return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
+//*******************************************************************************************//
+
+
