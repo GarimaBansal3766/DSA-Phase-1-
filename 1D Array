@@ -53,3 +53,83 @@ int main()
     return 0;
 }
 /*****************************************************************/
+
+/// Practice questions on array from leetcode and gfg 
+//*************************************************************************************//
+//largest element in an array  (gfg)
+class Solution {
+  public:
+    int largest(vector<int> &arr) {
+        // code here
+        int first = INT_MIN;
+        int n = arr.size();
+        for(int i = 0;i<n;i++)
+        {
+            if(arr[i]>first)
+            {
+                first = arr[i];
+            }
+        }
+        return first;
+    }
+};
+
+//********************************************************************************************
+//sort colors 001122 (leetcode)
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+    int l = 0;
+    int m = 0;
+    int h = nums.size()-1;
+while(m<=h){
+        if(nums[m]==2)
+        {
+        //swap with h
+        int temp = nums[m];
+        nums[m]=nums[h];
+        nums[h]=temp;
+        h--;
+        m++;
+        }
+        else if(nums[m]==1)
+        {
+            m++;
+        }     
+        else{
+            //swap with low
+            int temp = nums[m];
+            nums[m]=nums[l];
+            nums[l]=temp;
+            l++;
+            m++;
+        }
+}
+    }
+};
+//********************************************************************************************//
+//valid palindrome (leetcode)
+class Solution {
+public:
+    bool isPalindrome(string s) {
+    int i = 0; int j = s.length()-1;
+while(i<j){
+    while(i<j && !isalnum(s[i]))
+    {
+        i++;
+    }
+    while(i<j && !isalnum(s[j]))
+    {
+        j--;
+    }
+    if(tolower(s[i])!=tolower(s[j]))
+    {
+        return false;
+    }
+    i++;
+    j--;
+}
+return true;
+}
+};
+//********************************************************************************************//
