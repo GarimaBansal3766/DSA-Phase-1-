@@ -17,7 +17,7 @@ void solve(TreeNode * root,vector<int> &arr)
     {
         return;
     }
-    arr.push_back(root->val);
+    arr.push_back(root->val); 
     solve(root->left,arr);
     solve(root->right,arr);
 }
@@ -46,16 +46,20 @@ class Solution {
     {
         if(root==NULL)
         {
-            return;
+            return;      //agar root null h mtlb kuch bhi nhi h to empty string jo initially pass ki h vo path mein print hogi 
             
         }
-        path+= to_string(root->val);
+                            //agar root null nhi h mtlb kuch h to root ki jo value h usko string mein convert karke path mein daaldi 
+        path+= to_string(root->val); 
+                            // ab agr leaf node aa gaya mtlb left or right both null to jo pura path aaya usko ans array ke andar daaldo 
         if(root->left==NULL && root->right==NULL)
         {
-            ans.push_back(path);
+            ans.push_back(path); /// 
         }
+//verna root ke pehle left mein jaao or saath mein path le jaao phir if null to push path verna
         else{
             solve(root->left,path + "->",ans);
+// verna right node me jaao or saath mein path le jaao phir wahi dono left right agar null ho gaye to path ko ans array mein push kardo 
             solve(root->right,path + "->",ans);
         }
     }
