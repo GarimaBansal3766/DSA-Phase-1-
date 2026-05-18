@@ -27,3 +27,30 @@ class Solution {
         return max_sum;
     }
 };
+///****************************************************************************//
+//Longest substring without repeating characters 
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        int left = 0;
+        int length = 0;
+        int maxlength = 0;
+        set<char>* sets = new set<char>();
+        for(int right = 0;right<s.length();right++)
+        {
+            while(sets->contains(s[right]))
+            {
+                sets->erase(s[left]);
+                left++;
+            }
+            sets->insert(s[right]);
+            length = right-left+1;
+            if(length>=maxlength)
+            {
+                maxlength=length;
+            }
+        }
+        return maxlength;
+    }
+};
+///***************************************************************************//
