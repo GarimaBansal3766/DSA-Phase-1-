@@ -184,3 +184,32 @@ class Solution {
     }
 };
 //********************************************************************************************//
+GFG Two Equal Sum Subarrays
+class Solution {
+  public:
+    bool canSplit(vector<int>& arr) {
+        // code here
+        int n = arr.size();
+        int sum1 = 0 ;
+        int sum2 = 0;
+        int total = 0 ; 
+        for(int i = 0;i<n;i++)
+        {
+            total += arr[i];
+        }
+        for(int j = 0;j<n;j++)
+        {
+            //prefix sum
+            sum1 += arr[j];
+            sum2 = total-sum1;
+            if(sum1==sum2)
+            {
+                return true;
+            }
+            
+        }
+        return false;
+    }
+};
+//********************************************************************************************//
+
