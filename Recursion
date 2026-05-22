@@ -95,3 +95,36 @@ int main()
  cout<<index;
 }
 //****************************************************************************************************************************************//
+GFG Min and Max in Array
+class Solution {
+  public:
+  void solve(vector<int> &arr, int i , int min , int max, vector<int> &ans)
+  {
+      if(i==arr.size())
+      {
+          ans.push_back(min);
+          ans.push_back(max);
+          return;
+      }
+      if(arr[i]>max)
+      {
+          max = arr[i];
+      }
+      if(arr[i]<min)
+      {
+          min = arr[i];
+      }
+      solve(arr,i+1,min,max,ans);
+      
+  }
+    vector<int> getMinMax(vector<int> &arr) {
+        // code here
+        vector<int> ans;
+        int i = 0;
+        int min = INT_MAX;
+        int max = INT_MIN;
+        solve(arr,i,min,max,ans);
+        return ans;
+    }
+};
+///******************************************************************************************//
