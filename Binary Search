@@ -280,3 +280,58 @@ public:
         return -1;
 }
 };
+///*****************************************************************************************//
+leetcode 410 split array largest sum 
+class Solution {
+public:
+
+bool ispossible(vector<int>& nums, int mid, int k )
+{
+     int sub = 1;
+      int sum = 0 ;
+      for(int i =0;i<nums.size();)
+      {
+        if((sum + nums[i])<=mid)
+        {
+            sum += nums[i];
+            i++;
+        }
+        else{
+            sub++;
+            sum = 0;
+        }
+        if(sub>k)
+      {
+        return false;
+      }
+     }
+      
+      return true;
+}
+    int splitArray(vector<int>& nums, int k) {
+        int start = 0;
+        int n = nums.size();
+        int total = 0; 
+        int mid;
+        int ans;
+        for(int i =0;i<n;i++)
+        {
+            total += nums[i];
+        }
+        int end = total;
+        while(start<=end)
+        {
+            mid = (start+end)/2;
+            if(ispossible(nums,mid,k))
+            {
+                ans = mid;
+                end = mid-1;
+            }
+            else{
+                start = mid+1;
+            }
+        }
+        return ans;
+    }
+};
+//*************************************************************************************//
