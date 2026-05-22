@@ -128,3 +128,26 @@ class Solution {
     }
 };
 ///******************************************************************************************//
+GFG check if array is sorted 
+class Solution {
+  public:
+  bool solve(vector<int> &arr,int i)
+  {
+      if(i==arr.size()-1)
+      {
+          return true;
+      }
+      if(arr[i+1]<arr[i])
+      {
+          return false;
+      }
+      return solve(arr,i+1);
+  }
+    bool isSorted(vector<int>& arr) 
+    {
+        // code here
+        int i = 0 ;
+        return solve(arr,i);
+    }
+};
+//*****************************************************************************************************//
