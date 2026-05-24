@@ -174,3 +174,27 @@ class Solution {
     }
 };
 //**************************************************************************************************//
+// GFG check if the array is palindrome or not 
+class Solution {
+  public:
+  bool solve(vector<int> &arr,int i ,int j)
+  {
+      if(i>=j)
+      {
+          return true;
+      }
+      if(arr[i]!=arr[j])
+      {
+          return false;
+      }
+      solve(arr,i+1,j-1);
+      
+  }
+    bool isPalindrome(vector<int> &arr) {
+        // code here
+        int i = 0;
+        int j = arr.size()-1;
+       return solve(arr,i,j);
+    }
+};
+ //********************************************************************************************************//
