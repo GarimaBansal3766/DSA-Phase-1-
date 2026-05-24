@@ -151,3 +151,26 @@ class Solution {
     }
 };
 //*****************************************************************************************************//
+// leetcode Reverse integer using Recursion
+class Solution {
+    public:
+    long long solve(int x,long long rev){
+        if(x==0)
+        {
+            return rev;
+        }
+        int rem = x % 10;
+        rev = rev*10+rem;
+       return solve(x/10,rev);    
+    }
+
+    int reverse(int x) {
+        long long rev = 0;
+        long long ans = solve(x,rev)
+        if(ans>INT_MAX||ans<INT_MIN){
+            return 0;
+        }
+        return (int) ans;
+    }
+};
+//**************************************************************************************************//
