@@ -132,3 +132,43 @@ class Solution {
     }
 };
 ///************************************************************************************************///
+leetcode 237. Delete Node in a Linked List
+class Solution {
+public:
+    void deleteNode(ListNode* node) 
+    {
+        node->val =  node->next->val;
+        node->next = node->next->next;
+//skip the Node 
+        // node ke val mein node ke next ke next ki value
+        // node ke next mein node ke next ke next ka next ; 
+    }
+};
+///************************************************************************************************///
+GFG Insertion at a Given Position in a Linked List
+class Solution {
+  public:
+    Node *insertPos(Node *head, int pos, int val) {
+        // code here
+        if(head==NULL||pos ==1)
+        {
+             Node *n = new Node(val);
+             n->next=head;
+             head = n;
+             return head;
+        }
+        Node * temp;
+        temp = head;
+        Node *n = new Node(val);
+        for(int i =1;i<pos-1;i++)
+        {
+            temp = temp->next;
+        }
+            Node * temp2 = temp-> next;
+            temp->next = n;
+            n->next = temp2;
+        return head;
+    }
+    
+};
+///************************************************************************************************///
