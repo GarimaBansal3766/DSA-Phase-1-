@@ -188,3 +188,27 @@ class Solution {
     }
 };
 ///************************************************************************************************///
+GFG delete node at a position in a linked list 
+Node *deleteAtPosition(Node *head, int pos) {
+    // code here
+    if(head==NULL)
+    {
+        return NULL;
+    }
+    else if(pos==1)
+    {
+        return head->next;
+    }
+    Node *temp = head; 
+    for(int i = 1;i<pos-1;i++)
+    {
+        temp = temp->next;
+    }
+    Node *temp2;
+    temp2 = temp->next->next;
+    delete temp->next;
+    temp->next = temp2;
+    
+    return head;
+}
+/***********************************************************************************************************//
