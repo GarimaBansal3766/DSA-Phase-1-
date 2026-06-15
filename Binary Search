@@ -335,3 +335,58 @@ bool ispossible(vector<int>& nums, int mid, int k )
     }
 };
 //*************************************************************************************//
+leetcode 875 - koko eating bananas
+class Solution {
+public:
+    bool ispossible(vector<int>piles,int h,int mid)
+    {
+        int hours = 0;
+        for(int i = 0;i<piles.size();i++)
+        {
+           if(piles[i]<=mid)
+           {
+            hours++;
+           }
+           else if(piles[i]%mid==0)
+           {
+            hours+=piles[i]/mid;
+           }
+           else if (piles[i]%mid!=0)
+           {
+            hours+=(piles[i]/mid)+1;
+           }
+           if(hours>h)
+           {
+            return false;
+           }         
+        }
+        return true;
+    }
+    int minEatingSpeed(vector<int>& piles, int h) {
+        int s = 1;
+        int n = piles.size();
+        int max = 0;
+        int ans;
+        for(int i = 0;i<n;i++)
+        {
+            if(piles[i]>max)
+            {
+                max = piles[i];
+            }
+        }
+        int e = max;
+        while(s<=e)
+        {
+            int mid = (s+e)/2;
+            if(ispossible(piles,h,mid))
+            {
+                ans = mid;
+                e=mid-1;
+            }
+            else{
+            s = mid+1;
+            }
+        }
+        return ans;
+    }
+};
