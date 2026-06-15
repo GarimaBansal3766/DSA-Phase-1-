@@ -69,3 +69,47 @@ public:
         return s;
     }
 };
+//*********************************************************************************************//
+//leetcode 443 - String Compression
+class Solution {
+public:
+    int compress(vector<char>& chars) {
+        int index = 0;
+        if(chars.size()==0)
+        {
+            return 0;
+        }
+        if(chars.size()==1)
+        {
+            return 1;
+        }
+        for(int i =0;i<chars.size();i++)
+        {
+            char ch = chars[i];
+            int count = 0;
+            while(i<chars.size()&&chars[i]==ch)
+            {
+                count++;
+                i++;
+            }
+            if(count==1)
+            {
+                chars[index]=ch;
+                index++;
+            }
+            else{
+
+                chars[index]=ch;
+                index++;
+                string str = to_string(count);
+            for(char x : str)
+            {
+                chars[index]=x;
+                index++;
+            }
+            }
+            i--;
+        }
+        return index;
+    }
+};
